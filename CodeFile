@@ -1,0 +1,48 @@
+import random
+
+# This function creates a random number according to the random input of snake, water or gun is decided.
+def compIp():
+    num = round((random.random())*100 , 2)
+    # print(num)  
+    if(num <= 33.3):    
+        return 's'
+    elif(num <= 66.6):  
+        return 'w'
+    elif(num <= 99.9):
+        return 'g'
+    
+# This function returns true if the player wins and False if the player loses.
+def checkWin(player , computer):
+    if(player == computer):
+        return 2
+    if(player == 's' and computer == 'w'):
+        return True
+    if(player == 'w' and computer == 'g'):
+        return True
+    if(player == 'g' and computer == 's'):
+        return True
+    if(player == 's' and computer == 'g'):
+        return False        
+    if(player == 'w' and computer == 's'):
+        return False
+    if(player == 'g' and computer == 'w'):
+        return False
+    
+# Taking user I/P
+print("Welcome to snake water gun game.")
+i = 1
+while(i == 1):
+    player = (input("Enter s for snake w for water and g for gun:\n")).lower()
+
+    # Printig the result.
+    result = checkWin(player , compIp())
+    if(result):
+        print("You won.")
+    elif(result == 2):
+        print("It was a draw.")
+    else:
+        print("You lost.")
+    i = input("Would you like to try again?\nNo => 0\nYes => 1\n")
+
+# Made by Manthan Sanap
+print("Thank you for playing my snake water and gun game.")
