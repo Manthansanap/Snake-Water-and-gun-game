@@ -1,0 +1,27 @@
+import random
+
+computer = random.choice([1,0,-1])
+numDict = {'s' : 1,'w' : -1,'g' : 0}
+revDict = {1 : "Snake",-1 : "Water",0 : "Gun"}
+
+youStr = input("Enter your choice:")
+you = numDict[youStr]
+
+print(f"Computer choose {revDict[computer]}\nYou choose {revDict[you]}")
+
+if(you == computer):
+    print("Draw")
+elif(computer == 1 and you == -1):
+    print("You lose")
+elif(computer == 1 and you == 0):
+    print("You Win")
+elif(computer == -1 and you == 1):
+    print("You Win")
+elif(computer == -1 and you == 0):
+    print("You Lose")
+elif(computer == 0 and you == -1):
+    print("You Win")
+elif(computer == 0 and you == 1):
+    print("You lose")
+else:
+    print("Something went wrong.")
